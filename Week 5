@@ -1,0 +1,121 @@
+week 5
+
+1. Question: Write a C++ program to perform addition of n elements using dynamic memory allocation.
+Program:
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int *a, n, i, sum = 0;
+cout << "Enter number of elements: ";
+    cin >> n;
+ a = new int[n];
+ cout << "Enter elements:\n";
+    for(i = 0; i < n; i++)
+    {
+        cin >> a[i];
+        sum += a[i];
+    }
+ cout << "Sum of elements = " << sum;
+ delete[] a;
+    return 0;
+}
+Output:
+Enter number of elements: 5
+Enter elements:
+10 20 30 40 50
+Sum of elements = 150
+
+
+2. Question: Write a C++ program to create four nodes in a single linked list using dynamic memory allocation.
+Program:
+#include <iostream>
+using namespace std;
+
+struct Node
+{
+    int data;
+    Node* next;
+};
+
+int main()
+{
+    Node *head, *second, *third, *fourth;
+  head = new Node();
+    second = new Node();
+    third = new Node();
+    fourth = new Node();
+ head->data = 10;
+    head->next = second;
+second->data = 20;
+    second->next = third;
+third->data = 30;
+    third->next = fourth;
+fourth->data = 40;
+    fourth->next = NULL;
+ Node* temp = head;
+    cout << "Linked List:\n";
+    while(temp != NULL)
+    {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    cout << "NULL";
+return 0;
+}
+Output:
+Linked List:
+10 -> 20 -> 30 -> 40 -> NULL
+
+
+3. Question: Write a C++ program to create single linked list nodes based on user input using dynamic memory allocation.
+Program:
+#include <iostream>
+using namespace std;
+
+struct Node
+{
+    int data;
+    Node* next;
+};
+
+int main()
+{
+    Node *head = NULL, *temp, *newNode;
+    int n, i;
+cout << "Enter number of nodes: ";
+    cin >> n;
+for(i = 0; i < n; i++)
+    {
+        newNode = new Node();
+        cout << "Enter data: ";
+        cin >> newNode->data;
+        newNode->next = NULL;
+ if(head == NULL)
+        {
+            head = temp = newNode;
+        }
+        else
+        {
+            temp->next = newNode;
+            temp = newNode;
+        }
+    }
+cout << "Linked List:\n";
+    temp = head;
+    while(temp != NULL)
+    {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    cout << "NULL";
+return 0;
+}
+
+Output:
+Enter number of nodes: 3
+Enter data: 5                                                                                                                                                   Enter data: 10
+Enter data: 15
+Linked List:
+5 -> 10 -> 15 -> NULL
