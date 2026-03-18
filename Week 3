@@ -1,0 +1,172 @@
+week 3
+1.Write a c++ program to demonstrate class and object
+PROGRAM:
+#include <iostream>
+using namespace std;
+
+class student {
+public:
+    int no, mark; // data members
+void read() { // member function-1
+        cout << "enter rno and marks: ";
+        cin >> no >> mark;
+    }
+ void display() { // member function-2
+        cout << "rno is: " << no << endl;
+        cout << "mark is: " << mark << endl;
+    }
+};
+int main() {
+    student s1;      // Create object
+    s1.read();       // Call read function
+    s1.display();    // Call display function
+    return 0;
+}
+OUTPUT:
+Enter r no. - 2
+marks-50
+rno is: 2
+marks is : 50
+
+2.Write a c++ code to demonstrate destructor and constructor
+PROGRAM:
+#include <iostream>
+using namespace std;
+
+class Calculator
+{
+public:
+    int a, b;
+  void input()
+    {
+        cout << "Enter two numbers: ";
+        cin >> a >> b;
+    }
+void add()
+    {
+        cout << "Addition = " << a + b << endl;
+    }
+void subtract()
+    {
+        cout << "Subtraction = " << a - b << endl;
+    }
+ void multiply()
+    {
+        cout << "Multiplication = " << a * b << endl;
+    }
+    void divide()
+    {
+        cout << "Division = " << a / b << endl;
+    }
+};
+int main()
+{
+    Calculator c;
+    c.input();
+    c.add();
+    c.subtract();
+    c.multiply();
+    c.divide();
+ return 0;
+}
+OUTPUT:
+Constructor is called
+Destructor is called
+
+
+3. Question: Write a C++ program to implement linear search.
+
+Program:
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a[10], key, i;
+    cout << "Enter 10 elements:\n";
+    for(i = 0; i < 10; i++)
+        cin >> a[i];
+
+  cout << "Enter element to search: ";
+    cin >> key;
+ for(i = 0; i < 10; i++)
+    {
+        if(a[i] == key)
+        {
+            cout << "Element found at position " << i + 1;
+            return 0;
+        }
+    }
+ cout << "Element not found";
+    return 0;
+}
+Output:
+Enter 10 elements:
+1 2 3 4 5 6 7 8 9 10
+Enter element to search: 5
+Element found at position 5
+
+
+4. Question: Write a C++ program to calculate number of occurrences of a search key using linear search.
+Program:
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a[10], key, i, count = 0;
+cout << "Enter 10 elements:\n";
+    for(i = 0; i < 10; i++)
+        cin >> a[i];
+cout << "Enter element to search: ";
+    cin >> key;
+for(i = 0; i < 10; i++)
+    {
+        if(a[i] == key)
+            count++;
+    }
+ cout << "Number of occurrences = " << count;
+    return 0;
+}
+Output:
+Enter 10 elements:
+1 2 3 2 4 2 5 2 6 2
+Enter element to search: 2
+Number of occurrences = 5
+
+
+5. Question: Write a C++ program to implement binary search.
+Program:
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a[10], key;
+    int low = 0, high = 9, mid;
+cout << "Enter 10 sorted elements:\n";
+    for(int i = 0; i < 10; i++)
+        cin >> a[i];
+cout << "Enter element to search: ";
+    cin >> key;
+while(low <= high)
+    {
+        mid = (low + high) / 2;
+if(a[mid] == key)
+        {
+            cout << "Element found at position " << mid + 1;
+            return 0;
+        }
+        else if(a[mid] < key)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+ cout << "Element not found";
+    return 0;
+}
+Output:
+Enter 10 sorted elements:
+1 2 3 4 5 6 7 8 9 10
+Enter element to search: 7
+Element found at position 7
